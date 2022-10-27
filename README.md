@@ -23,3 +23,19 @@ The utility function chosen was either maximizing the player agent’s tile wort
 > 
 > return Math.max(h1,  h2);
 
+# Evaluation Function
+The evaluation function is the same as the utility function shown above
+
+# Heuristics & Strategies
+The heuristics we considered when implementing our agent are as followed:
+- Mobility:  The number of legal moves the agent can make against its opponent throughout the course of the game. Mobility is essential as it will allow the agent to maximize its chances of obtaining discs of higher worth and mitigating the number of moves the opponent can make. 
+- Stability: The number of stable discs the agent has to capitalize on the number of discs on the board. Stable discs we considered are corners and any neighboring discs of the same color along the edge. Stability is essential as it ensures the disc will not be taken from the opponent.
+- Tile-Worth/Tile-Weight: The value when placing a disc on a specific coordinate of the board. For instance, if the agent was to place a disc on a C-Square, adjacent edge squares, or X-square, from the corners diagonally adjacent, it allows the opponent to take advantage as they will have a higher chance of capitalizing the corner. Having a disc on a corner adds more stability for the player in terms of the number of discs they will have on the board. To prevent the agent from making a move like this, we made it so that these coordinates on the board are of negative value. 
+
+In addition to these heuristics, we use several strategies to improve the efficacy and efficiency of the program. Some of our strategies include:
+- Depth Iterative Search based on Time: instead of using a depth limit, our iterative alpha-beta pruning search will repeatedly search with a larger depth limit. When we are close to running out of time, the search will abort and the results of the previous search (which we were able to complete) will be used. 
+- Minimal Memory Use: to try to make our program run as fast as possible, we try to limit the amount of memory used—especially in our searches. For example, we use a byte array to represent our board (instead of something like a string array), and then convert between our byte representation and the referee’s string representation during communications. 
+- Code Efficiency: to try to make our code run faster, we try to limit the amount of work needed for any task. To accomplish this, we use a variety of strategies (such as short circuiting booleans), processing the number of tiles owned by each player during player moves, using queues for fast enqueue and dequeue operations during search, and more. 
+- Search Tree Ordering: when searching for the best possible move, we store the action taken and the heuristic of the resulting state in priority queues. This allows us to process the best/worst possible actions (depending on if the node is a max node or a min node)  in order with little additional work. 
+
+
