@@ -42,12 +42,23 @@ In addition to these heuristics, we use several strategies to improve the effica
 - The agent program was tested against past versions of itself. The team made various versions of the agent as we changed the heuristics and weight for the agent.
   - Each new evaluation or heuristic was typically tested against multiple previous iterations, in case we accidentally created a heuristic that could beat our previous one, but led to the AI still picking worse moves overall as it will not consistently  make an optimal move rather, it will make moves that will be good enough to counter the previous iteration of the AI; pertains to a rock-paper-scissors scenario.
   - To evaluate the effectiveness of the AI, some of the test games were analyzed using WZebra, a software for Othello, which can analyze a board state far in advance to calculate which is the best move available.
-Strengths/Weaknesses: 
-Strengths
-The AI overall plays well past the first four to five moves, prioritizing on leaving the opponent with few options and focusing on acquiring stable discs, especially corners.
-The AI can prioritize different things at different times, so at the start of the game it does not see the first moves available to it as all being equal because none of them allow it to obtain stable discs in the near future.
-Weaknesses
-The AI does not always play the first four to five moves optimally. This is in part because we struggled to create a heuristic that encouraged the AI to hold on to the center spaces early on without getting greedy and grabbing lots of tiles at the same time.
-Late game, the values of corners and the X-squares adjacent to them are different from what they were early on or in the mid-game. Our AI does not account for this and does not always make the optimal move regarding these spaces late game. It strongly prefers to avoid X-squares, even when taking an X-square would leave the opponent with a single bad move they had no option but to take.
+# Strengths/Weaknesses: 
+- Strengths
+  - The AI overall plays well past the first four to five moves, prioritizing on leaving the opponent with few options and focusing on acquiring stable discs, especially corners.
+  - The AI can prioritize different things at different times, so at the start of the game it does not see the first moves available to it as all being equal because none of them allow it to obtain stable discs in the near future.
+- Weaknesses
+  - The AI does not always play the first four to five moves optimally. This is in part because we struggled to create a heuristic that encouraged the AI to hold on to the center spaces early on without getting greedy and grabbing lots of tiles at the same time.
+  - Late game, the values of corners and the X-squares adjacent to them are different from what they were early on or in the mid-game. Our AI does not account for this and does not always make the optimal move regarding these spaces late game. It strongly prefers to avoid X-squares, even when taking an X-square would leave the opponent with a single bad move they had no option but to take.
+
+## Discussion of Heuristics
+The evaluation function looks at the game in a couple different ways to determine the best course of action. If one of the pieces of the evaluation function does not clearly indicate a best move, then another part of the function usually will. This is extremely useful, as some measures of how well the AI is doing do not apply at all points in the game. For the terminal state, we want to have as many tiles as possible, but for the early game it is typically better to minimize the number of tiles we have to reduce the moves available to the opponent. Leading up to the end of the game, it’s a good idea to begin gathering stable discs. This is also a poor heuristic early on though, as no stable discs can be obtained by either player until a corner square has been filled. By having an evaluation function that considers multiple ways to evaluate the board state, we can give the AI different behavior for different situations. This allows the AI to prioritize getting stable discs late game and grabbing as many tiles as it can, while also letting the AI make good moves in the start of the game to reduce the options available to the opponent.
+
+## Contributors
+
+- Alex Friedman
+- Daniel Stusalitus
+- Kevin Dang
+
+
 
 
