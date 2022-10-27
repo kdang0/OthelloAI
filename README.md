@@ -38,4 +38,16 @@ In addition to these heuristics, we use several strategies to improve the effica
 - Code Efficiency: to try to make our code run faster, we try to limit the amount of work needed for any task. To accomplish this, we use a variety of strategies (such as short circuiting booleans), processing the number of tiles owned by each player during player moves, using queues for fast enqueue and dequeue operations during search, and more. 
 - Search Tree Ordering: when searching for the best possible move, we store the action taken and the heuristic of the resulting state in priority queues. This allows us to process the best/worst possible actions (depending on if the node is a max node or a min node)  in order with little additional work. 
 
+# Results
+- The agent program was tested against past versions of itself. The team made various versions of the agent as we changed the heuristics and weight for the agent.
+  - Each new evaluation or heuristic was typically tested against multiple previous iterations, in case we accidentally created a heuristic that could beat our previous one, but led to the AI still picking worse moves overall as it will not consistently  make an optimal move rather, it will make moves that will be good enough to counter the previous iteration of the AI; pertains to a rock-paper-scissors scenario.
+  - To evaluate the effectiveness of the AI, some of the test games were analyzed using WZebra, a software for Othello, which can analyze a board state far in advance to calculate which is the best move available.
+Strengths/Weaknesses: 
+Strengths
+The AI overall plays well past the first four to five moves, prioritizing on leaving the opponent with few options and focusing on acquiring stable discs, especially corners.
+The AI can prioritize different things at different times, so at the start of the game it does not see the first moves available to it as all being equal because none of them allow it to obtain stable discs in the near future.
+Weaknesses
+The AI does not always play the first four to five moves optimally. This is in part because we struggled to create a heuristic that encouraged the AI to hold on to the center spaces early on without getting greedy and grabbing lots of tiles at the same time.
+Late game, the values of corners and the X-squares adjacent to them are different from what they were early on or in the mid-game. Our AI does not account for this and does not always make the optimal move regarding these spaces late game. It strongly prefers to avoid X-squares, even when taking an X-square would leave the opponent with a single bad move they had no option but to take.
+
 
