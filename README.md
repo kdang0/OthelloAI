@@ -1,6 +1,6 @@
 # OthelloAI
 
-This project consists of developing and implementing a computer program that plays Othello. The project exemplifies the minimax algorithm and alpha-beta pruning.
+This school project consists of developing and implementing a computer program that plays Othello. The project exemplifies the minimax algorithm and alpha-beta pruning.
 
 # What is Othello?
 
@@ -8,7 +8,9 @@ Othello is a two player game (one of them being your computer program). The two 
 
 Please look for information online about Othello and its rules. A good website to play the game and learn about the Othello rules is:  https://www.eothello.com/Links to an external site.. See 'How to play Othello" on that page. Their website states: "We recommend Brian Rose's book "Othello: a minute to learn... a lifetime to master"Links to an external site.. Brian is the 2001 World Othello Champion and his is the most comprehensive book on Othello strategy ever published in English. "
 
-# Live Demo of our Othello program playing against another team's Othello program
+# Live Demo
+
+Our Othello program playing against another team's Othello program
 
 https://user-images.githubusercontent.com/73298064/198175083-d9bdd959-652b-4f6f-baba-0d4cd0f428fd.mp4
 
