@@ -18,8 +18,6 @@ https://user-images.githubusercontent.com/73298064/198175083-d9bdd959-652b-4f6f-
 The utility function chosen was either maximizing the player agent’s tile worth or mobility and it was done so by taking the max value from 1. the summation of the player agent’s number of stable discs, tile worth, and number of remaining moves and 2. taking the max value from agent player moves and remaining tile pieces. This causes the agent to be greedy in the sense that it will try to capitalize on the number of stable discs, for which the value of these stable discs are significant. The exact function is shown below:
 
 > final float h1 = 2.0f * (PlayerStable[4] + (56 - OpponentStable[4])) + (PlayerTileWorth - OpponentTileWorth) + (PlayerMoves - OpponentMoves);
-
 > final float h2 = Math.max(2.5f*(PlayerMoves - OpponentMoves), 2.5f*(PlayerTiles - OpponentTiles));
-
 > return Math.max(h1,  h2);
 
